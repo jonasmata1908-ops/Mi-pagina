@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum House Nuevo Laredo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #111;
+            color: #fff;
+        }
+        header {
+            background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d') center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        header h1 {
+            background: rgba(0,0,0,0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        nav {
+            background: #222;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px;
+        }
+        .gallery img {
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .blog article {
+            background: #222;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+        }
+        form input, form button {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        form button {
+            background: #e63946;
+            color: white;
+            cursor: pointer;
+        }
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 20px;
+        }
+    .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+        }
+        .slide {
+            min-width: 100%;
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Drum House Nuevo Laredo<br>¡Vive la música desde adentro!</h1>
+</header>
+
+<nav>
+    <a href="#tour">Tour Virtual</a>
+    <a href="#reserva">Inscripción</a>
+    <a href="#blog">Blog</a>
+</nav>
+
+<section id="tour">
+    <h2>Tour Virtual</h2>
+    <p>Explora nuestras instalaciones y conoce nuestro equipo antes de visitarnos.</p>
+    <div class="carousel">
+        <div class="slides">
+            <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76" class="slide active">
+            <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a" class="slide">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" class="slide">
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">❮</button>
+        <button class="next" onclick="changeSlide(1)">❯</button>
+    </div>
+    
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76">
+        <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4">
+    </div>
+</section>
+
+<section id="reserva">
+    <h2>Reserva y Pago en Línea</h2>
+    <p>Inscríbete fácilmente desde casa.</p>
+    <form>
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <input type="tel" placeholder="Teléfono" required>
+        <button type="submit">Reservar clase</button>
+    </form>
+</section>
+
+<section id="blog" class="blog">
+    <h2>Blog Cultural</h2>
+
+    <article>
+        <h3>Beneficios de aprender música</h3>
+        <p>La música mejora la concentración, la creatividad y reduce el estrés.</p>
+    </article>
+
+    <article>
+        <h3>¿Por qué aprender batería?</h3>
+        <p>La batería ayuda a desarrollar coordinación, disciplina y ritmo.</p>
+    </article>
+
+    <article>
+        <h3>El arte como forma de expresión</h3>
+        <p>Las artes permiten canalizar emociones y desarrollar habilidades sociales.</p>
+    </article>
+
+</section>
+
+<footer>
+    <p>© 2026 Drum House Nuevo Laredo</p>
+</footer>
+
+<script>
+        let index = 0;
+        const slides = document.getElementsByClassName('slide');
+
+        function showSlide(i) {
+            for (let s of slides) {
+                s.classList.remove('active');
+            }
+            slides[i].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            index += direction;
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            showSlide(index);
+        }
+    </script>
+</body>
+</html>
